@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.wyt.demo.main.fragment.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_customFragment"
+            app:destination="@id/customFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_byteFragment"
+            app:destination="@id/byteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rxJavaFragment"
+            app:destination="@id/rxJavaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customFragment"
+        android:name="com.wyt.demo.main.fragment.custom.CustomFragment"
+        android:label="custom_fragment"
+        tools:layout="@layout/custom_fragment" >
+        <action
+            android:id="@+id/action_customFragment_to_waveViewFragment"
+            app:destination="@id/waveViewFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_ringDialFragment"
+            app:destination="@id/ringDialFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_colorPickerFragment"
+            app:destination="@id/colorPickerFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_bubbleFragment"
+            app:destination="@id/bubbleFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_numberKeyboardFragment"
+            app:destination="@id/numberKeyboardFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
+        <action
+            android:id="@+id/action_customFragment_to_byteFragment2"
+            app:destination="@id/byteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/waveViewFragment"
+        android:name="com.wyt.demo.main.fragment.custom.WaveViewFragment"
+        android:label="wave_view_fragment"
+        tools:layout="@layout/wave_view_fragment" />
+    <fragment
+        android:id="@+id/ringDialFragment"
+        android:name="com.wyt.demo.main.fragment.custom.RingDialFragment"
+        android:label="ring_dial_fragment"
+        tools:layout="@layout/ring_dial_fragment" />
+    <fragment
+        android:id="@+id/colorPickerFragment"
+        android:name="com.wyt.demo.main.fragment.custom.ColorPickerFragment"
+        android:label="color_picker_fragment"
+        tools:layout="@layout/color_picker_fragment" />
+    <fragment
+        android:id="@+id/bubbleFragment"
+        android:name="com.wyt.demo.main.fragment.custom.BubbleFragment"
+        android:label="bubble_fragment"
+        tools:layout="@layout/bubble_fragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.wyt.demo.main.fragment.custom.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/numberKeyboardFragment"
+        android:name="com.wyt.demo.main.fragment.custom.NumberKeyboardFragment"
+        android:label="number_keyboard_fragment"
+        tools:layout="@layout/number_keyboard_fragment" />
+    <fragment
+        android:id="@+id/frameFragment"
+        android:name="com.wyt.demo.main.fragment.custom.FrameFragment"
+        android:label="frame_fragment"
+        tools:layout="@layout/frame_fragment" />
+    <fragment
+        android:id="@+id/byteFragment"
+        android:name="com.wyt.demo.main.fragment.bytefm.ByteFragment"
+        android:label="byte_fragment"
+        tools:layout="@layout/byte_fragment" />
+    <fragment
+        android:id="@+id/rxJavaFragment"
+        android:name="com.wyt.demo.main.fragment.rxjava.RxJavaFragment"
+        android:label="rx_java_fragment"
+        tools:layout="@layout/rx_java_fragment" />
+</navigation>

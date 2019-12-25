@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.fragment.custom.RingDialFragment">
+
+    <com.wyt.demo.view.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="进度："
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlebar" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:max="100"
+        android:maxHeight="2dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:progress="3"
+        android:progressDrawable="@drawable/play_seekbar_bg"
+        android:splitTrack="false"
+        android:thumb="@drawable/slider_thumb_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.wyt.demo.view.CircleProgress
+        android:id="@+id/ring_dial"
+        android:layout_width="300pt"
+        android:layout_height="300pt"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        app:antiAlias="true"
+        app:arcWidth="15dp"
+        app:bgArcColor="@android:color/darker_gray"
+        app:bgArcWidth="2dp"
+        app:dottedLineWidth="12dp"
+        app:foreEndColor="#F4F200"
+        app:foreStartColor="#FE6615"
+        app:hintSize="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seek_bar"
+        app:maxValue="100"
+        app:startAngle="135"
+        app:sweepAngle="270"
+        app:textOffsetPercentInRadius="0.5"
+        app:unit="目标100KM"
+        app:unitColor="@android:color/darker_gray"
+        app:unitSize="15dp"
+        app:value="75"
+        app:valueColor="#FFCC1E"
+        app:valueSize="40dp" />
+
+    <com.wyt.demo.view.ScaleDialView
+        android:id="@+id/scaleDialView"
+        android:layout_width="300pt"
+        android:layout_height="300pt"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
