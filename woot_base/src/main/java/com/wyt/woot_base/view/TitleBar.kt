@@ -1,4 +1,4 @@
-package com.wyt.demo.view
+package com.wyt.woot_base.view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.wyt.demo.R
+import com.wyt.woot_base.R
 
 class TitleBar: ConstraintLayout {
 

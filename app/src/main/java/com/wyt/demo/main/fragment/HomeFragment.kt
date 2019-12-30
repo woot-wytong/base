@@ -57,6 +57,8 @@ class HomeFragment : BaseFragment() {
             LinearLayoutManager.VERTICAL, false
         )
         rv_content.addItemDecoration(MyDividerItem(leftRight, topBottom))
+
+
         adapter.setOnItemClickListener { _, _, position ->
             when(position){
                 0->{

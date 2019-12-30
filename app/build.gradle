@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -87,9 +89,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     implementation "org.greenrobot:eventbus:3.1.1"
+
     implementation "androidx.room:room-runtime:2.2.3"
-    annotationProcessor "androidx.room:room-compiler:2.2.3"
+    kapt "androidx.room:room-compiler:2.2.3"
     implementation "androidx.room:room-ktx:2.2.3"
+    implementation "androidx.room:room-rxjava2:2.2.3"
+
+
     implementation 'com.afollestad.material-dialogs:core:3.1.0'
     implementation 'com.tencent:mmkv:1.0.23'
     implementation 'com.google.code.gson:gson:2.8.6'
