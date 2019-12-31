@@ -1,4 +1,4 @@
-package com.wyt.demo.view
+package com.wyt.woot_base.view
 
 import android.content.Context
 import android.graphics.Color
@@ -15,12 +15,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.wyt.demo.R
-import com.wyt.demo.main.adapter.SearchAdapter
-import com.wyt.demo.main.item.SearchItem
+import com.chad.library.adapter.base.BaseViewHolder
+import com.wyt.woot_base.R
 
 
-class MySearchView : ConstraintLayout {
+class WytSearchView : ConstraintLayout {
 
     private lateinit var editText: EditText //搜索输入框
     private lateinit var searchBtn: ImageView //搜索按钮
@@ -99,7 +98,7 @@ class MySearchView : ConstraintLayout {
         }
     }
 
-    fun setData(list:List<SearchItem>?){
+    fun setData(list:List<String>?){
         adapter.setNewData(list)
     }
 
@@ -125,6 +124,14 @@ class MySearchView : ConstraintLayout {
 
     fun finishSearch(){
         editText.clearFocus()
+    }
+
+
+
+    class SearchAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_search) {
+        override fun convert(helper: BaseViewHolder, item: String) {
+            helper.setText(R.id.search_name,item)
+        }
     }
 
 

@@ -102,7 +102,7 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
     implementation 'com.amap.api:3dmap:6.9.4'
     implementation 'com.amap.api:location:4.7.0'
-    implementation group: 'org.lionsoul', name: 'ip2region', version: '1.7'
+    implementation group: 'org.lionsoul', name: 'ip2region', version: '1.7.2'
     implementation 'commons-net:commons-net:3.5'
     implementation 'com.zhouyou:rxeasyhttp:2.1.5'
     implementation 'com.qmuiteam:qmui:1.4.0'
@@ -112,8 +112,11 @@ dependencies {
     implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
     implementation project(path: ':woot_base')
+
+//    implementation 'com.github.woot-wytong:base:v1.0.0'
+
 }
