@@ -2,7 +2,7 @@ package com.wyt.demo.inter
 
 import android.graphics.RectF
 
-interface IFramAction {
+interface IFrameAction {
     fun onActionStart()
     fun onActionStop(rectF: RectF?)
 }

@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.wyt.demo.inter.IFramAction;
+import com.wyt.demo.inter.IFrameAction;
 import com.wyt.demo.util.CatchEdgeUtil;
 import com.wyt.demo.util.UIUtil;
 
@@ -44,7 +44,7 @@ public class FramSelectionView extends View {
 
     //手指位置距离裁剪框的偏移量
     private PointF mTouchOffset = new PointF();
-    private IFramAction action = null;
+    private IFrameAction action = null;
 
 
     private CropWindowEdgeSelector mPressedCropWindowEdgeSelector;
@@ -300,7 +300,7 @@ public class FramSelectionView extends View {
 
 
 
-    public void setFramActionListion(IFramAction action){
+    public void setFramActionListion(IFrameAction action){
         this.action = action;
     }
 }

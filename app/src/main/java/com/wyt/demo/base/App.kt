@@ -8,6 +8,12 @@ import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.beta.Beta
 import com.zhouyou.http.EasyHttp
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
 /**
  * Application
  * 2019.11.28 ->wyt
@@ -48,5 +54,15 @@ class App : Application() {
             .setRetryDelay(0)
             //可以全局统一设置超时重试间隔叠加时间,默认为0ms不叠加
             .setRetryIncreaseDelay(0)
+    }
+
+    private fun initRetrofit() {
+        Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())//配置转化库，采用Gson
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//配置回调库，采用RxJava
+            .baseUrl("https://api.douban.com/")//服务器地址，基础请求路径，最好以"/"结尾
+        OkHttpClient.Builder()
+            .connectTimeout(15, TimeUnit.SECONDS)//设置请求超时时长为15秒
+
     }
 }

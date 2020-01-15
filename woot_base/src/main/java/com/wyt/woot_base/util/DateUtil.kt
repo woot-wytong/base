@@ -1,8 +1,8 @@
 package com.wyt.woot_base.util
 
-import android.icu.text.SimpleDateFormat
-
+import android.annotation.SuppressLint
 import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.Date
 
 /**
@@ -12,8 +12,9 @@ object DateUtil {
 
     // formatType格式为yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日 HH时mm分ss秒
     // data Date类型的时间
+    @SuppressLint("SimpleDateFormat")
     fun dateToString(data: Date?, formatType: String): String {
-        return SimpleDateFormat(formatType).format(data)
+        return SimpleDateFormat(formatType).format(data!!)
     }
 
     // currentTime要转换的long类型的时间
@@ -27,6 +28,7 @@ object DateUtil {
     // strTime要转换的string类型的时间，formatType要转换的格式yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日
     // HH时mm分ss秒，
     // strTime的时间格式必须要与formatType的时间格式相同
+    @SuppressLint("SimpleDateFormat")
     @Throws(ParseException::class)
     fun stringToDate(strTime: String, formatType: String): Date? {
         val formatter = SimpleDateFormat(formatType)

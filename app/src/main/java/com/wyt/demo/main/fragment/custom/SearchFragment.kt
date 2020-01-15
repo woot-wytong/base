@@ -54,6 +54,23 @@ class SearchFragment : BaseFragment() {
 
             }
         })
+        val list = ArrayList<String>()
+        list.add("了啦有噶就是")
+        list.add("暗杀计划的")
+        list.add("爱丽丝")
+        list.add("夫噶市场大幅")
+        list.add("啊实打实")
+        list.add("自行车自行车")
+        list.add("从v不错v")
+        list.add("不能明白你")
+        list.add("暗杀计划的")
+        list.add("爱丽丝")
+        list.add("夫噶市场大幅")
+        list.add("啊实打实")
+        list.add("自行车自行车")
+        list.add("从v不错v")
+        list.add("不能明白你")
+        search.setData(list)
     }
 
     override fun initViewModel() {

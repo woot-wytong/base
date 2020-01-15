@@ -3,16 +3,13 @@ package com.wyt.demo.main.fragment.rxjava
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.google.gson.Gson
 
 import com.wyt.demo.R
 import com.wyt.demo.main.viewmodel.RxJavaViewModel
@@ -20,12 +17,7 @@ import com.wyt.demo.room.AppDataBase
 import com.wyt.demo.room.bean.User
 import com.wyt.woot_base.fragment.BaseFragment
 import com.wyt.woot_base.fragment.EventCenter
-import io.reactivex.Single
-import io.reactivex.SingleObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
-import io.reactivex.schedulers.Schedulers
+import com.wyt.woot_base.util.AnimationUtil
 import kotlinx.android.synthetic.main.rx_java_fragment.*
 
 class RxJavaFragment : BaseFragment() {
@@ -54,7 +46,10 @@ class RxJavaFragment : BaseFragment() {
 
     override fun getBundleExtras(bundle: Bundle) = Unit
 
-    override fun initLogic() = Unit
+    override fun initLogic(){
+
+    }
+
 
     override fun initTitle() {
         titleBar.setLeftImg(R.mipmap.icon_back)
@@ -66,22 +61,30 @@ class RxJavaFragment : BaseFragment() {
 
     @SuppressLint("CheckResult")
     override fun initView() {
+
+        var isGone = false
         start.setOnClickListener {
-            //            viewModel.initData()
-            AppDataBase.default.rxDao().addUser(
-                User(7, "lajkshd", "lkasdha", "男", 19)
-            )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
+//            viewModel.initData()
+//            AppDataBase.default.rxDao().addUser(
+//                User(7, "lajkshd", "lkasdha", "男", 19)
+//            )
+//                .subscribe()
+
+            if(isGone){
+                recyclerview.startAnimation(AnimationUtil.showAnimation(500))
+                recyclerview.visibility = View.VISIBLE
+                isGone = false
+            }else{
+                recyclerview.startAnimation(AnimationUtil.hideAnimation(500))
+                recyclerview.visibility = View.GONE
+                isGone = true
+            }
 
         }
         recyclerview.layoutManager = LinearLayoutManager(context)
         recyclerview.adapter = adapter
 
         AppDataBase.default.rxDao().getAll()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 adapter.setNewData(it)
             }

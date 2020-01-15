@@ -13,7 +13,7 @@ abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     /**
@@ -40,5 +40,6 @@ abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
             }
         }
     }
+
 
 }

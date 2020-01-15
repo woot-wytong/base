@@ -57,7 +57,6 @@ class WytSearchView : ConstraintLayout {
         closeBtn.setOnClickListener {
             states = 0
             editText.setText("")
-            setData(null)
             checkStates()
         }
     }
