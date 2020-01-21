@@ -52,22 +52,21 @@ object TrafficChange {
                         val avgByte =
                             when (unit) {
                                 SpeedUnit.Mbitps -> {
-                                    SpeedUnit.Mbitps.formatValue((totalBytes - preByte).toDouble() / 128 / (duration / 1000)) +
-                                            SpeedUnit.Mbitps.value
+                                    SpeedUnit.Mbitps.formatValue((totalBytes - preByte).toDouble() / 128 / (duration / 1000))
+                                        .toDouble()
                                 }
                                 SpeedUnit.Kbitps -> {
-                                    SpeedUnit.Kbitps.formatValue((totalBytes - preByte).toDouble() * 8 / (duration / 1000)) +
-                                            SpeedUnit.Kbitps.value
-
+                                    SpeedUnit.Kbitps.formatValue((totalBytes - preByte).toDouble() * 8 / (duration / 1000))
+                                        .toDouble()
                                 }
                                 SpeedUnit.MBps -> {
-                                    SpeedUnit.MBps.formatValue((totalBytes - preByte).toDouble() / 1024 / (duration / 1000)) +
-                                            SpeedUnit.MBps.value
+                                    SpeedUnit.MBps.formatValue((totalBytes - preByte).toDouble() / 1024 / (duration / 1000))
+                                        .toDouble()
 
                                 }
                                 SpeedUnit.KBps -> {
-                                    SpeedUnit.KBps.formatValue((totalBytes - preByte).toDouble() / (duration / 1000)) +
-                                            SpeedUnit.KBps.value
+                                    SpeedUnit.KBps.formatValue((totalBytes - preByte).toDouble() / (duration / 1000))
+                                        .toDouble()
                                 }
                             }
                         listener.getByte(avgByte)
