@@ -4,6 +4,10 @@ import android.net.TrafficStats
 import java.util.*
 
 
+/**
+ * 流量监听
+ * 2019.11.28 -> wyt
+ */
 object TrafficChange {
 
     private//总的接受字节数，包含Mobile和WiFi等
@@ -74,6 +78,9 @@ object TrafficChange {
         }
     }
 
+    /**
+     * 停止
+     */
     fun stopByteListener() {
         preByte = 0L
         isWorking = false

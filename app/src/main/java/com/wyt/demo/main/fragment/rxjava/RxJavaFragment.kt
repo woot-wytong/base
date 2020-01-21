@@ -84,10 +84,7 @@ class RxJavaFragment : BaseFragment() {
         recyclerview.layoutManager = LinearLayoutManager(context)
         recyclerview.adapter = adapter
 
-        AppDataBase.default.rxDao().getAll()
-            .subscribe {
-                adapter.setNewData(it)
-            }
+//
     }
 
     override fun initViewModel() {
