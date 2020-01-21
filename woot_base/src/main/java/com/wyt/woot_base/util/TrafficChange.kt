@@ -4,15 +4,19 @@ import android.net.TrafficStats
 import java.util.*
 
 
-class ByteChange {
+object TrafficChange {
 
     private//总的接受字节数，包含Mobile和WiFi等
     val totalDownBytes: Long
-        get() = if (TrafficStats.getTotalRxBytes() == TrafficStats.UNSUPPORTED.toLong()) 0 else TrafficStats.getTotalRxBytes() / 1024
+        get() = if (TrafficStats.getUidRxBytes(android.os.Process.myUid()) == TrafficStats.UNSUPPORTED.toLong()) 0 else TrafficStats.getUidRxBytes(
+            android.os.Process.myUid()
+        ) / 1024
 
     private//总的发送字节数，包含Mobile和WiFi等
     val totalUpBytes: Long
-        get() = if (TrafficStats.getTotalTxBytes() == TrafficStats.UNSUPPORTED.toLong()) 0 else TrafficStats.getTotalTxBytes() / 1024
+        get() = if (TrafficStats.getUidTxBytes(android.os.Process.myUid()) == TrafficStats.UNSUPPORTED.toLong()) 0 else TrafficStats.getUidTxBytes(
+            android.os.Process.myUid()
+        ) / 1024
 
     /**
      * 获取手机接收和发送的总字节数
@@ -25,6 +29,13 @@ class ByteChange {
     private var preByte: Long = 0L
     private var isWorking = false
 
+
+    /**
+     * 注意！！！使用timer，监听结果不可以直接运行再UI线程中
+     *
+     * @duration 间隔时长(ms)
+     * @unit 单位 SpeedUnit.***
+     */
     fun addByteListener(listener: IByte, duration: Long, unit: SpeedUnit) {
         if (isWorking) {
             stopByteListener()

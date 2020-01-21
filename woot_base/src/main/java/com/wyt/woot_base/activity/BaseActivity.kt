@@ -9,6 +9,10 @@ import com.blankj.utilcode.util.AdaptScreenUtils
 import com.wyt.woot_base.fragment.BackHandleFragment
 import com.wyt.woot_base.fragment.BackHandleInterface
 
+/**
+ * BaseActivity,处理屏幕适配，物理回退拦截
+ * 2019.11.28 -> wyt
+ */
 abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

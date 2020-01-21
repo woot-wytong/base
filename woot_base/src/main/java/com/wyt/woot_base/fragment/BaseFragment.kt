@@ -5,6 +5,10 @@ import androidx.navigation.Navigation
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
+/**
+ * BaseFragment
+ * 2019.11.30 -> wyt
+ */
 abstract class BaseFragment : BackHandleFragment() {
 
     override fun onBackPressed(): Boolean = onBack()
@@ -47,6 +51,13 @@ abstract class BaseFragment : BackHandleFragment() {
     abstract fun onBack():Boolean
 
     /**
+     * EventBus接收信息的方法，开启后才会调用
+     *
+     * @param event
+     */
+    abstract fun onEventBus(event: EventCenter<Any>)
+
+    /**
      * EventBus接收消息
      *
      * @param event 消息接收
@@ -55,20 +66,6 @@ abstract class BaseFragment : BackHandleFragment() {
     fun onEventMainThread(event: EventCenter<Any>?) {
         if (event != null) {
             onEventBus(event)
-        }
-    }
-
-    /**
-     * EventBus接收信息的方法，开启后才会调用
-     *
-     * @param event
-     */
-    abstract fun onEventBus(event: EventCenter<Any>)
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if (openEventBus()) {
-            EventBus.getDefault().unregister(this)
         }
     }
 
@@ -103,5 +100,13 @@ abstract class BaseFragment : BackHandleFragment() {
             .navigate(actionId, null)
     }
 
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (openEventBus()) {
+            EventBus.getDefault().unregister(this)
+        }
+    }
 
 }

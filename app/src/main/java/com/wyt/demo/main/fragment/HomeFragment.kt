@@ -41,6 +41,8 @@ class HomeFragment : BaseFragment() {
 
     override fun initLogic() = Unit
 
+
+
     override fun initTitle() {
         titleBar.setTitle("Demo")
     }
