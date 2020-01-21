@@ -12,9 +12,10 @@ class ByteViewModel : ViewModel() {
 
     fun startByteListen(duration:Long,unit: SpeedUnit){
         TrafficChange.addByteListener(object : IByte {
-            override fun getByte(byte: String) {
-                byteLiveData.postValue(byte)
+            override fun getByte(byte: Double) {
+                byteLiveData.postValue("$byte${unit.value}")
             }
+
         },duration,unit)
     }
 
