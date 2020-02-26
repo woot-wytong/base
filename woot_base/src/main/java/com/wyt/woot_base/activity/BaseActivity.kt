@@ -15,8 +15,8 @@ import com.wyt.woot_base.fragment.BackHandleInterface
  */
 abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
