@@ -3,7 +3,6 @@ package com.wyt.woot_base.activity
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.AdaptScreenUtils
 import com.wyt.woot_base.fragment.BackHandleFragment
@@ -25,7 +24,6 @@ abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
      */
     override fun getResources(): Resources {
         return AdaptScreenUtils.adaptHeight(super.getResources(), 1280)
-
     }
 
     // 物理回退拦截
@@ -36,11 +34,13 @@ abstract class BaseActivity : AppCompatActivity(), BackHandleInterface {
     }
 
     override fun onBackPressed() {
-        if (!backHandleFragment.onBackPressed()) {
-            if (supportFragmentManager.backStackEntryCount == 0) {
-                super.onBackPressed()
-            } else {
-                supportFragmentManager.popBackStack();
+        if(this::backHandleFragment.isInitialized){
+            if (!backHandleFragment.onBackPressed()) {
+                if (supportFragmentManager.backStackEntryCount == 0) {
+                    super.onBackPressed()
+                } else {
+                    supportFragmentManager.popBackStack();
+                }
             }
         }
     }
