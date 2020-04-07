@@ -1,2 +1,2 @@
-include ':app', ':woot_base'
+include ':app', ':woot_base', ':net_info',':dualsim'
 rootProject.name='Demo'
