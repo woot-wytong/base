@@ -15,4 +15,5 @@ interface DaoRxJava {
 
     @Insert
     fun addUser(user: User): Completable
+
 }

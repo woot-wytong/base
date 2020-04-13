@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.wyt.demo.R
 import com.wyt.demo.view.NumberKeyboardView
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
+import com.wyt.woot_base.eventbus.EventCenter
 import kotlinx.android.synthetic.main.number_keyboard_fragment.*
 
 class NumberKeyboardFragment : BaseFragment() {

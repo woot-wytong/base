@@ -10,7 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 
 import com.wyt.demo.R
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
+import com.wyt.woot_base.eventbus.EventCenter
 import kotlinx.android.synthetic.main.wave_view_fragment.*
 
 class WaveViewFragment : BaseFragment() {

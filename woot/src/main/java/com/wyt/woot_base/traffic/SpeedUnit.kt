@@ -1,4 +1,4 @@
-package com.wyt.woot_base.util
+package com.wyt.woot_base.traffic
 
 enum class SpeedUnit(val value: String) {
     Mbitps("Mbps"), Kbitps("Kbps"), MBps("MB/s"), KBps("KB/s");

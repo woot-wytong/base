@@ -1,4 +1,4 @@
-package com.wyt.woot_base.util
+package com.wyt.woot_base.date
 
 import androidx.room.TypeConverter
 import java.util.*

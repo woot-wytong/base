@@ -1,4 +1,4 @@
-package com.wyt.woot_base.util
+package com.wyt.woot_base.animation
 
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation

@@ -11,7 +11,7 @@ import com.wyt.demo.R
 import com.wyt.demo.main.adapter.CustomAdapter
 import com.wyt.demo.main.viewmodel.CustomViewModel
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
+import com.wyt.woot_base.eventbus.EventCenter
 import kotlinx.android.synthetic.main.custom_fragment.*
 
 class CustomFragment : BaseFragment() {

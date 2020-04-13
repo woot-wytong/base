@@ -17,7 +17,7 @@ import com.wyt.demo.main.adapter.HomeAdapter
 import com.wyt.demo.main.viewmodel.HomeViewModel
 import com.wyt.demo.other.MyDividerItem
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
+import com.wyt.woot_base.eventbus.EventCenter
 import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : BaseFragment() {

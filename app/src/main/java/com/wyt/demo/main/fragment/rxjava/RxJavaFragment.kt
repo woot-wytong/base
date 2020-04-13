@@ -13,11 +13,10 @@ import com.chad.library.adapter.base.BaseViewHolder
 
 import com.wyt.demo.R
 import com.wyt.demo.main.viewmodel.RxJavaViewModel
-import com.wyt.demo.room.AppDataBase
 import com.wyt.demo.room.bean.User
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
-import com.wyt.woot_base.util.AnimationUtil
+import com.wyt.woot_base.eventbus.EventCenter
+import com.wyt.woot_base.animation.AnimationUtil
 import kotlinx.android.synthetic.main.rx_java_fragment.*
 
 class RxJavaFragment : BaseFragment() {

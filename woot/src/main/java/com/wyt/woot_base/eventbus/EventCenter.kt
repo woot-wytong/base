@@ -1,4 +1,4 @@
-package com.wyt.woot_base.fragment
+package com.wyt.woot_base.eventbus
 
 /**
  * EventBus使用

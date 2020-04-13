@@ -1,17 +1,20 @@
 package com.wyt.demo.main.fragment.bytefm
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.blankj.utilcode.util.GsonUtils
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog
 import com.wyt.demo.R
 import com.wyt.demo.main.viewmodel.ByteViewModel
 import com.wyt.woot_base.fragment.BaseFragment
-import com.wyt.woot_base.fragment.EventCenter
-import com.wyt.woot_base.util.SpeedUnit
+import com.wyt.woot_base.eventbus.EventCenter
+import com.wyt.woot_base.traffic.SpeedUnit
 import com.zhouyou.http.EasyHttp
 import com.zhouyou.http.callback.SimpleCallBack
 import com.zhouyou.http.exception.ApiException
@@ -46,21 +49,24 @@ class ByteFragment : BaseFragment() {
             })
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initView() {
         start.setOnClickListener {
             viewModel.startByteListen(durationNum,unitValue)
+            state.text = "ON"
+            state.setBackgroundColor(Color.parseColor("#00FF00"))
         }
         request.setOnClickListener {
             EasyHttp.get("http://video.hrtel.com/video/4G_he.mp4")
                 .execute(object :SimpleCallBack<String>(){
                     override fun onSuccess(t: String?) {}
-
                     override fun onError(e: ApiException?) {}
-
                 })
         }
         stop.setOnClickListener {
             viewModel.stopByteListen()
+            state.text = "OFF"
+            state.setBackgroundColor(Color.parseColor("#FF0000"))
         }
 
         select_duration.setOnClickListener {
@@ -104,10 +110,18 @@ class ByteFragment : BaseFragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initViewModel() {
         viewModel = ViewModelProviders.of(this).get(ByteViewModel::class.java)
         viewModel.byteLiveData.observe(this, Observer {
             value.text = it
+        })
+        viewModel.trafficInfoLiveData.observe(this, Observer {
+            if(it!=null){
+                max.text = "最大速率：${it.getMaxFlow(unitValue)}${unitValue.value}"
+                avg.text = "平均速率：${it.getAvgFlow(unitValue)}${unitValue.value}"
+                json.text = GsonUtils.toJson(it)
+            }
         })
     }
 

@@ -22,6 +22,7 @@ abstract class AppDataBase : RoomDatabase() {
             get() = buildDatabase()
 
         private fun buildDatabase(): AppDataBase {
+
             return Room.databaseBuilder(
                 Utils.getApp().applicationContext,
                 AppDataBase::class.java,

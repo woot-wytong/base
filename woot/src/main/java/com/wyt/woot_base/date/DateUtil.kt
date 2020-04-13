@@ -1,4 +1,4 @@
-package com.wyt.woot_base.util
+package com.wyt.woot_base.date
 
 import android.annotation.SuppressLint
 import java.text.ParseException
@@ -21,7 +21,10 @@ object DateUtil {
     // formatType要转换的string类型的时间格式
     @Throws(ParseException::class)
     fun longToString(currentTime: Long, formatType: String): String {
-        val date = longToDate(currentTime, formatType) // long类型转成Date类型
+        val date = longToDate(
+            currentTime,
+            formatType
+        ) // long类型转成Date类型
         return dateToString(date, formatType)
     }
 
@@ -42,8 +45,14 @@ object DateUtil {
     @Throws(ParseException::class)
     fun longToDate(currentTime: Long, formatType: String): Date? {
         val dateOld = Date(currentTime) // 根据long类型的毫秒数生命一个date类型的时间
-        val sDateTime = dateToString(dateOld, formatType) // 把date类型的时间转换为string
-        return stringToDate(sDateTime, formatType)
+        val sDateTime = dateToString(
+            dateOld,
+            formatType
+        ) // 把date类型的时间转换为string
+        return stringToDate(
+            sDateTime,
+            formatType
+        )
     }
 
     // strTime要转换的String类型的时间
@@ -51,7 +60,10 @@ object DateUtil {
     // strTime的时间格式和formatType的时间格式必须相同
     @Throws(ParseException::class)
     fun stringToLong(strTime: String, formatType: String): Long {
-        val date = stringToDate(strTime, formatType) // String类型转成date类型
+        val date = stringToDate(
+            strTime,
+            formatType
+        ) // String类型转成date类型
         return if (date == null) {
             0
         } else {

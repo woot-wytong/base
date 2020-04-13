@@ -3,6 +3,7 @@ package com.wyt.woot_base.fragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.wyt.woot_base.eventbus.EventCenter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
